@@ -9,7 +9,7 @@ const _loadLib = async function(_location) {
     /* Initialize ZeroCDN public key. */
     const zerocdn = '1ZCDN4UGGVmhRd29DrVVW7vNsbmMvfrr3'
 
-    /* Retrieve the file data. */
+    /* Retrieve the library data. */
     const libData = await page.cmd('fileGet', [`cors-${zerocdn}/libs/${_location}`])
 
     /* Evaluate (execute) JS library data (in global scope). */
@@ -20,7 +20,7 @@ const init = async function () {
     await _loadLib('moment/2.22.2/js/moment.min.js')
     await _loadLib('numeral/2.0.6/js/numeral.min.js')
 
-    /* Test injected library. */
+    /* Test injected libraries. */
     const epoch = moment().unix()
     const formatted = numeral(epoch).format('0,0')
     console.log(`Epoch is [ ${epoch} / ${formatted} ]`)
