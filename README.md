@@ -9,8 +9,8 @@ const _loadLib = async function(_location) {
     /* Initialize ZeroCDN public key. */
     const zerocdn = '1ZCDN4UGGVmhRd29DrVVW7vNsbmMvfrr3'
 
-    /* Retrieve the library data (using ZeroApp). */
-    const libData = await ZeroApp.cmd('fileGet', [`cors-${zerocdn}/libs/${_location}`])
+    /* Retrieve the library data (using ZeroApi). */
+    const libData = await ZeroApi.cmd('fileGet', [`cors-${zerocdn}/libs/${_location}`])
 
     /* Evaluate (execute) JS library data (in global scope). */
     eval(libData) // FIXME Is there possibly anything "safer" than eval??
