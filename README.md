@@ -16,7 +16,7 @@ const _loadLib = async function(_location) {
     eval(libData) // FIXME Is there possibly anything "safer" than eval??
 }
 
-const _initLibs = async function () {
+const init = async function () {
     await _loadLib('moment/2.22.2/js/moment.min.js')
     await _loadLib('numeral/2.0.6/js/numeral.min.js')
 
@@ -26,4 +26,5 @@ const _initLibs = async function () {
     console.log(`Epoch is [ ${epoch} / ${formatted} ]`)
 }
 
+init()
 ```
